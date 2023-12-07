@@ -106,11 +106,29 @@
 
                                     @foreach ($appliance as $k => $el)
                                         <div class="d-flex item">
+                                            <div class="d-block">
+                                                <div class="m-2 img-div">
+                                                    @php
+                                                        $rand = rand();
+                                                    @endphp
+                                                    <label for="file-appl-{{ $rand }}">
+                                                        <img src="{{ @$image[$k] }}" class="img-thumbnail image-appl"
+                                                            alt="image"
+                                                            style="cursor: pointer;width: 100px; height: 60px; object-fit:contain">
+                                                    </label>
+                                                    <input type="file" class="file-appl"
+                                                        accept=".jpg,.jpeg,.png,.webp"
+                                                        id="file-appl-{{ $rand }}" style="display: none">
+                                                    <input type="hidden" name='image[]' value="{{ @$image[$k] }}"
+                                                        class="image-data">
+                                                </div>
+                                            </div>
                                             <div class="m-2">
                                                 <select class="form-select select2 appliance" name="appliance[]"
                                                     value="{{ $el }}" style="min-width: 300px">
                                                     @foreach ($appliances as $el2)
-                                                        <option value="{{ $el2->name }}" watts="{{ $el2->watts }}"
+                                                        <option value="{{ $el2->name }}"
+                                                            watts="{{ $el2->watts }}"
                                                             @if ($el2->name == $el) selected @endif>
                                                             {{ $el2->name }}
                                                         </option>
@@ -141,20 +159,6 @@
                                                     name="wattsperday[]" placeholder="Watt Hours per Day"
                                                     style="width: 200px">
                                                 <label for="floatingInput">Watt Hours per Day</label>
-                                            </div>
-                                            <div class="m-2 img-div">
-                                                @php
-                                                    $rand = rand();
-                                                @endphp
-                                                <label for="file-appl-{{ $rand }}">
-                                                    <img src="{{ @$image[$k] }}" class="img-thumbnail image-appl"
-                                                        alt="image"
-                                                        style="cursor: pointer;width: 100px; height: 60px; object-fit:cover">
-                                                </label>
-                                                <input type="file" class="file-appl" accept=".jpg,.jpeg,.png,.webp"
-                                                    id="file-appl-{{ $rand }}" style="display: none">
-                                                <input type="hidden" name='image[]' value="{{ @$image[$k] }}"
-                                                    class="image-data">
                                             </div>
                                             <div class="m-2">
                                                 <button type="button"
@@ -370,6 +374,16 @@
         $(function() {
             var template = `
             <div class="d-flex item">
+                <div class="d-block">
+                    <div class="m-2 img-div" style="width: 100px !important">
+                        <label for="file-appl-RANDATA">
+                            <img src="_SOURCE_" class="img-thumbnail image-appl" alt="image" style="cursor: pointer;width: 100px; height: 60px; object-fit:contain">
+                        </label>
+                        <input type="file" class="file-appl" id="file-appl-RANDATA" accept=".jpg,.jpeg,.png,.webp"
+                            style="display: none">
+                        <input type="hidden" name='image[]' value="_SOURCE_" class="image-data" >
+                    </div>
+                </div>
                 <div class="m-2">
                     <select class="form-select select2 appliance" name="appliance[]" style="min-width: 300px">
                         <option value="">Select appliance</option>
@@ -398,14 +412,6 @@
                     <input class="form-control wattsperday" readonly id="floatingInput" name="wattsperday[]"
                         placeholder="Watt Hours per Day" style="width: 200px">
                     <label for="floatingInput">Watt Hours per Day</label>
-                </div>
-                <div class="m-2 img-div">
-                    <label for="file-appl-RANDATA">
-                        <img src="_SOURCE_" class="img-thumbnail image-appl" alt="image" style="cursor: pointer;width: 100px; height: 60px; object-fit:cover">
-                    </label>
-                    <input type="file" class="file-appl" id="file-appl-RANDATA" accept=".jpg,.jpeg,.png,.webp"
-                        style="display: none">
-                    <input type="hidden" name='image[]' value="_SOURCE_" class="image-data" >
                 </div>
                 <div class="m-2">
                     <button type="button" class="btn btn-lg btn-danger remove btn-close text-danger mt-3"

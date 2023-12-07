@@ -251,7 +251,7 @@ function buildPDF(array $data): Mpdf
         $dir =  makedir($data['email']);
         $f = base64_to_image($img, "$dir/$k");
         $html .= "<span class='m-1'>
-                    <img style='width: 100px; height: 100px; object-fit:cover;' class='img-thumbnail m-1' src='$f' >
+                    <img style='width: 100px; height: 100px; object-fit:contain;' class='img-thumbnail m-1' src='$f' >
                     <span>" . ($k + 1) . "</span>
                     </span>";
     }

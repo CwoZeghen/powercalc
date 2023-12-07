@@ -107,7 +107,7 @@
                                         @endphp
                                         <label for="file-appl-{{ $rand }}">
                                             <img src="" class="img-thumbnail image-appl" alt="image"
-                                                style="cursor: pointer;width: 100px; height: 60px; object-fit:cover">
+                                                style="cursor: pointer;width: 100px; height: 60px; object-fit:contain">
                                         </label>
                                         <input type="file" accept=".jpg,.jpeg,.png,.webp" class="file-appl"
                                             id="file-appl-{{ $rand }}" style="display: none">
@@ -484,7 +484,7 @@
                 </div>
                 <div class="m-2 img-div">
                     <label for="file-appl-RANDATA">
-                        <img src="" class="img-thumbnail image-appl" alt="image" style="cursor: pointer;width: 100px; height: 60px; object-fit:cover">
+                        <img src="" class="img-thumbnail image-appl" alt="image" style="cursor: pointer;width: 100px; height: 60px; object-fit:contain">
                     </label>
                     <input type="file" accept=".jpg,.jpeg,.png,.webp" class="file-appl" id="file-appl-RANDATA"
                         style="display: none">

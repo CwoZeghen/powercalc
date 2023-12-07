@@ -190,7 +190,7 @@
                                     <td>
                                         <img src="{{ $img }}" class="img-thumbnail image-appl"
                                             alt="image"
-                                            style="cursor: pointer;width: 100px; height: 60px; object-fit:cover">
+                                            style="cursor: pointer;width: 100px; height: 60px; object-fit:contain">
                                     </td>
                                     <td>{{ $v }}</td>
                                     <td class="text-center">{{ $_qty }}</td>
