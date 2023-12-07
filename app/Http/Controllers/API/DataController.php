@@ -172,7 +172,7 @@ class DataController extends Controller
                 ];
                 sendToCRM($lead);
             } else {
-                $m = "Sorry, you must verify your email address! please check the link send to your email address";
+                $m = "Sorry, you must verify your email address! please check the link sent to your email address";
                 $success = false;
                 try {
                     $data['token'] = $e->token;
