@@ -39,6 +39,7 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto p-4 p-lg-0">
             <a href="{{ route('home') }}" class="nav-item nav-link active">Home</a>
+            <a href="{{ route('login') }}" class="nav-item nav-link">Login</a>
             {{-- <a href="{{route('home')}}" class="nav-item nav-link">About</a> --}}
             {{-- <a href="{{route('home')}}" class="nav-item nav-link">Service</a> --}}
             {{-- <a href="{{route('home')}}" class="nav-item nav-link">Project</a> --}}

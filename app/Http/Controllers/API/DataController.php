@@ -151,6 +151,7 @@ class DataController extends Controller
                 $m = "Your information has been sent. Please verify your mail box to verfy your email address";
                 DB::commit();
             } catch (\Throwable $th) {
+                // dd($th);
                 $success = false;
                 $m = "Sorry we are anable to verify your email address, please retry.";
             }

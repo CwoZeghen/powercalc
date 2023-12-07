@@ -30,7 +30,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 pb-5">
-                <h1 class="text-center mt-5">Login</h1>
+                <h4 class="text-center mt-5">Login</h4>
                 <form class="mt-3" id="form" method="POST" action="#">
                     @csrf
                     <div class="row flex-column">
@@ -51,7 +51,7 @@
                                 <div id="rep"></div>
                             </div>
                             <div class="p-2">
-                                <button class="btn btn-danger">Connexion</button>
+                                <button class="btn btn-danger">Login</button>
                             </div>
                         </div>
                     </div>

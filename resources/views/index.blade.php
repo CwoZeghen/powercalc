@@ -295,7 +295,10 @@
                                     </button>
                                     <div id="rep"></div>
                                     <div class="d-flex justify-content-end">
-                                        <button class="btn btn-lg btn-primary" type="submit">See result</button>
+                                        <button class="btn btn-lg btn-primary" type="submit" id="sub">
+                                            <span></span>
+                                            See result
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -1647,6 +1650,14 @@
                         .slideDown();
                     return false;
                 }
+
+                var addr = $('[address]').val();
+                if (addr.length == 0) {
+                    rep.html("Please pick up your address on the map.").removeClass().addClass(
+                            'alert alert-danger')
+                        .slideDown();
+                    return false;
+                }
                 var number = '' + dialCode + n;
 
                 $(':input', uform).prop('disabled', false);
@@ -1661,6 +1672,9 @@
                 if (lastId) {
                     data += '&item=' + lastId;
                 }
+
+                var btn = $("#sub");
+                btn.find('span').removeClass().addClass('fa fa-spinner fa-spin');
 
                 $.ajax({
                     method: 'POST',
@@ -1705,6 +1719,7 @@
 
                     }
                 }).always(function() {
+                    btn.find('span').removeClass();
                     var b = $('.btn-update').html('<i class="fa fa-check-circle fa-2x"></i>');
                     setTimeout(() => {
                         b.attr('disabled', false).html('Add selected Addons');
