@@ -97,7 +97,7 @@
                                                 $o->id = $el->id;
                                                 $o->name = $el->name;
                                                 $o->cost = $el->cost;
-                                                $o->description = $el->cost;
+                                                $o->description = $el->description;
                                                 $o->checked = false;
                                                 $addonsList[] = $o;
                                             }
