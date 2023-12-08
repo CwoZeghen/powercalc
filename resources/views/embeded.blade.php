@@ -74,6 +74,20 @@
                             <div class="mb-5 item-zone" style="max-height: 500px;overflow-y: scroll;">
                                 <input type="hidden" name="item" item>
                                 <div class="d-flex item">
+                                    <div class="d-block">
+                                        <div class="m-2 img-div" style="width: 100px !important">
+                                            @php
+                                                $rand = rand();
+                                            @endphp
+                                            <label for="file-appl-{{ $rand }}">
+                                                <img src="" class="img-thumbnail image-appl" alt="image"
+                                                    style="cursor: pointer;width: 100px; height: 60px; object-fit:contain">
+                                            </label>
+                                            <input type="file" accept=".jpg,.jpeg,.png,.webp" class="file-appl"
+                                                id="file-appl-{{ $rand }}" style="display: none">
+                                            <input type="hidden" name='image[]' class="image-data">
+                                        </div>
+                                    </div>
                                     <div class="m-2">
                                         <select class="form-select select2 appliance" name="appliance[]"
                                             style="min-width: 300px"></select>
@@ -97,21 +111,8 @@
                                     </div>
                                     <div class="form-floating m-2">
                                         <input class="form-control wattsperday" readonly id="floatingInput"
-                                            name="wattsperday[]" placeholder="Watt Hours per Day"
-                                            style="width: 200px">
+                                            name="wattsperday[]" placeholder="Watt Hours per Day" style="width: 200px">
                                         <label for="floatingInput">Watt Hours per Day</label>
-                                    </div>
-                                    <div class="m-2 img-div">
-                                        @php
-                                            $rand = rand();
-                                        @endphp
-                                        <label for="file-appl-{{ $rand }}">
-                                            <img src="" class="img-thumbnail image-appl" alt="image"
-                                                style="cursor: pointer;width: 100px; height: 60px; object-fit:contain">
-                                        </label>
-                                        <input type="file" accept=".jpg,.jpeg,.png,.webp" class="file-appl"
-                                            id="file-appl-{{ $rand }}" style="display: none">
-                                        <input type="hidden" name='image[]' class="image-data">
                                     </div>
                                     <div class="m-2">
                                         <button type="button"
@@ -420,7 +421,7 @@
     {{-- @include('inc.footer') --}}
 
     <script src="{{ asset('js/jq.js') }}"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('js/select2.min.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('css/select2.min.css') }}">
     {{-- <link rel="stylesheet"
@@ -458,6 +459,16 @@
         $(function() {
             var template = `
             <div class="d-flex item">
+                <div class="d-block">
+                    <div class="m-2 img-div" style="width: 100px !important">
+                        <label for="file-appl-RANDATA">
+                            <img src="" class="img-thumbnail image-appl" alt="image" style="cursor: pointer;width: 100px; height: 60px; object-fit:contain">
+                        </label>
+                        <input type="file" accept=".jpg,.jpeg,.png,.webp" class="file-appl" id="file-appl-RANDATA"
+                            style="display: none">
+                        <input type="hidden" name='image[]' class="image-data" >
+                    </div>
+                </div>
                 <div class="m-2">
                     <select class="form-select select2 appliance" name="appliance[]" style="min-width: 300px"></select>
                 </div>
@@ -481,14 +492,6 @@
                     <input required class="form-control wattsperday" readonly id="floatingInput" name="wattsperday[]"
                         placeholder="Watt Hours per Day" style="width: 200px">
                     <label for="floatingInput">Watt Hours per Day</label>
-                </div>
-                <div class="m-2 img-div">
-                    <label for="file-appl-RANDATA">
-                        <img src="" class="img-thumbnail image-appl" alt="image" style="cursor: pointer;width: 100px; height: 60px; object-fit:contain">
-                    </label>
-                    <input type="file" accept=".jpg,.jpeg,.png,.webp" class="file-appl" id="file-appl-RANDATA"
-                        style="display: none">
-                    <input type="hidden" name='image[]' class="image-data" >
                 </div>
                 <div class="m-2">
                     <button type="button" class="btn btn-lg btn-danger remove btn-close text-danger mt-3"
